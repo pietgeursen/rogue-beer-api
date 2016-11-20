@@ -1,7 +1,8 @@
 var express = require('express')
 var router = express.Router()
-var beers = require('rogue-beer-list')
 var pull = require('pull-stream')
+
+var beers = require('../scrape-beers')
 /* GET users listing. */
 router.get('/', function(req, res) {
   pull(

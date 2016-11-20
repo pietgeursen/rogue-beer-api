@@ -18,7 +18,8 @@ module.exports = () => pull(
       const details = $(el).children().map((j, detail) => {
         const line = $(detail)
         const className = line.attr('class') 
-        return {[className]: line.text()}
+
+        return {[className === 'beer-name' ? 'name' : className]: line.text()}
       }).toArray()
 
       const beer = details.reduce((beer, detail) => {
@@ -29,7 +30,7 @@ module.exports = () => pull(
 
     }).toArray()
 
-    return beers.filter(beer => beer['beer-name'])
+    return beers.filter(beer => beer['name'])
   })
 )
 
